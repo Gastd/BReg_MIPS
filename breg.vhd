@@ -21,7 +21,7 @@ architecture arch of breg is
 begin
     r1 <= out1;
     r2 <= out2;
-    breg_proc : process( clk, wren, rst, radd1, radd2, out1, out2 )
+    breg_proc : process( clk, wren, rst, radd1, radd2, out1, out2, regs )
     begin
         zero <= X"00000000";
         -- write registers

@@ -240,6 +240,13 @@ begin
     -- 31
     radd1 <= "11111"; radd2 <= "11111";
     wait for 100 ps;
+    -- trying to write in register 'zero'
+    wadd <= "00000"; radd1 <= "00000"; wren <= '1'; wdata <= (std_logic_vector(to_unsigned(2459845, 32)));
+    wait for 200 ps;
+    -- trying to read and write in the same register
+    radd2 <= "00010";
+    wadd <= "00010";  wren <= '1'; wdata <= (std_logic_vector(to_unsigned(666, 32)));
+    wait for 200 ps;
 wait;
 end process init;
 end breg_arch;
