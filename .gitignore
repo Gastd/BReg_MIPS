@@ -1,0 +1,9 @@
+# quartus
+*.rpt
+*.txt
+*.bak*
+ula.qws
+
+db/
+incremental_db/
+output_files/
