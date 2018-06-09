@@ -3,6 +3,9 @@
 *.txt
 *.bak*
 ula.qws
+*.pdf
+*.aux
+*.log
 
 db/
 incremental_db/
