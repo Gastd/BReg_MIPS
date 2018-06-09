@@ -1,22 +1,21 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
---use work.reg_p.all;
 
 entity breg is
-    --generic (WSIZE : natural := 32);
+    generic (WSIZE : natural := 32);
   port (
         clk, wren, rst: in std_logic;
         radd1, radd2, wadd: in std_logic_vector(4 downto 0);
-        wdata: in std_logic_vector(31 downto 0);
-        r1, r2: out std_logic_vector(31 downto 0)
+        wdata: in std_logic_vector(WSIZE-1 downto 0);
+        r1, r2: out std_logic_vector(WSIZE-1 downto 0)
   ) ;
 end entity ; -- breg
 
 architecture arch of breg is
-    type registers is array (1 to 31) of std_logic_vector(31 downto 0);
-    signal zero, out1: std_logic_vector(31 downto 0);
-    signal out2: std_logic_vector(31 downto 0);
+    type registers is array (1 to WSIZE-1) of std_logic_vector(WSIZE-1 downto 0);
+    signal zero, out1: std_logic_vector(WSIZE-1 downto 0);
+    signal out2: std_logic_vector(WSIZE-1 downto 0);
     signal regs: registers;
 begin
     r1 <= out1;
